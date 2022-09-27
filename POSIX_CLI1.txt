@@ -1,0 +1,89 @@
+싸이트: opentutorials.org/module/3747
+커버 페이지
+	운영체제를 제어하는 2가지 방법: GUI(Graphic User Interface) vs CLI(Command User Interface)
+	GUI: 마우스 또는 터치 등으로 아이콘 또는 버튼을 톡톡 만지며 조작하는 방법
+	CLI: 명령어를 이용해 언어적으로 또 논리적으로 com. 제어하는 것.
+
+	CLI가 배우기/습득하기 어렵지만 배워야 하는 이유?
+
+		언어를 이용하면 우리의 의사를 정확하게 전달가능
+		지시하고 싶은 것을 시간의 순서에 따라 이야기 -> 순차적 처리, 자동화 가능
+	
+		gui는 컴퓨터의 자원을 정말 많이 씀. 그래서 gui 시스템에서
+		컴퓨터가 하는 일 또는 우리가 해결하고자 하는 문제보다는
+		gui를 제공하기 위해 사용하는 에너지가 거의 대부분.
+
+		반면, CLI사용시 매우 작은 자원으로 동작
+		운영체제의 용량도 CPU나 메모리의 사용도 현저히 떨어짐
+		따라서 컴퓨터가 본연의 일에 충실하게 동작하는데 매우 좋은 tool
+
+	이 수업에서는 POSIX CLI = portable operating system interface!
+	: 유닉스 계열의 컴퓨터들을 서로 동일한 방법으로 제어하기 위한 일종의 표준
+	  유닉스는 물론 그 유닉스를 통해 파생된 운영체제
+	  리눅스 MACOS 모두 POSIX를 다루고 있다.
+
+	windows계열(또는 안드와 IOS) 과 호환되지 않기에 emulator(일종의 번역기) 사용
+	대표적인 git bash. 
+
+	또는 별도의 서버를 마련하는 것.
+	그 서버는 posix에 호환되는 서버.
+	즉 우리의 운영체제에서 저 posix 서버에 원격으로 접속하는 것. (원격제어)
+	이때 사용하는 도구가 secure Shell, ssh. 
+
+수업의 목적
+	컴퓨터의 핵: file
+	파일이 많으면 문제가 생기는데, 이름을 계속해서 바꿔주야 하기 때문에
+	그래서 만든게 directory
+	
+	자 이제 저장된 데이터를 처리하는 방법?
+	CRUD
+	file:           editor / editor,cat,ls / editor,mv / rm
+	directory: mkdir / ls / mv / rm
+
+디렉토리의 사용
+	pwd : 현재 본인의 path / print working director
+	rm 사용주의 
+	cd :  change directory
+	cd / : 최상의 directory로 이동
+	cd ~: home directory로 바로 가라.
+
+현재 디렉토리의 상태보기와 명령어의 형식
+	ls --help 또는 man ls 
+	touch .showfile.txt : posix계열 시스템들은 점이 붙어 있으면 감춘 파일
+	그래서 파일이 존재함에도 보이지 않으면 man ls 에서 어떻게 출력하는 지 확인
+	ls -a : hidden파일이 출력이 됨.
+	ls -l
+디렉토리의 생로병사
+	: 디렉토리를 생성, 수정, 삭제하는 방법에 대해 알아본다.
+	/최상위에서 시작 
+	./ 현재의 하위
+	.text.txt : hidden file
+	rm -r directory : -r(recursive)이유는 파일을 삭제할 때 안전장치
+절대경로 vs 상대경로
+	너무 쉬붐..
+파일생성과 읽기
+	nano (새로운 파일 만드는 command)
+	touch : 빈파일을 만들 수 있음.
+	cat hello.txt // 파일 내용을 출력하고 끝나는 프로그램.
+파일수정과 삭제
+	파일이름을 수정: mv hello.txt hello2.txt
+	파일을 지울 때 굳이 -r 사용안하고 바로 rm hello.txt
+GUI VS CLI
+	현실의 GUI : 버튼
+	CLI: 대화 - 말을 배워야 한다는 단점 
+	그럼에도 CLI사용하는 이유? 풍부하고 정확하게 언어를 전달할 수 있다는 기능이 있기 때문에
+		
+순서대로 실행하기
+	mkdir dummy;cd dummy;touch hello.txt
+	중간에 오타가 있는데 실행되면 큰일이 나기 때문에
+	; 대신에 &&를 반드시 쓸 것! (오류방지)
+자동화 - 실패하면 실행 멈추기
+	
+수업을 마치며
+	파일안에 있는 명령어를 실행해: shel script (program 자동화, 생산성 증대시킴)
+	package - 내가 쓴 것을 다른 사람이 쓸 수 있게 혹은 vice versa -> pacakage manager
+	maintain - data + process 
+			storage, memory
+			computer architecture - top, htop
+	network - 서로서로 정보를 공유 
+
